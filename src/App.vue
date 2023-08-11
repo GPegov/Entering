@@ -1,10 +1,14 @@
 <template>
     <div class="app">
-        <post-form
+        <my-dialog :show="true">
+            <post-form
         @create="createPost"
         /> 
+        </my-dialog>
+        
         <post-list 
         :posts="posts"
+        @remove="removePost"
         />
     </div>
    
@@ -32,6 +36,9 @@ export default {
         createPost(post) {
             this.posts.push(post)
         },
+        removePost(post){
+            this.posts = this.posts.filter(p => p.id !== post.id)
+        }
     }
 
 }

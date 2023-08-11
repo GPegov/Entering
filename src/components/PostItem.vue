@@ -5,7 +5,11 @@
         <div><strong>Описание: </strong> {{ post.body }}</div>
     </div>
     <div class="post__btns">
-        <MyButton>Удалить</MyButton>
+        <my-button
+        @click="$emit('remove', post)"
+        >
+        Удалить
+    </my-button>
     </div>
             
     </div>
@@ -13,11 +17,7 @@
 
 
 <script>
-//import MyButton from './UI/MyButton.vue';
 export default {
-    /*components: {
-        MyButton
-    },*/
     props: {
         post: {
             type: Object,
